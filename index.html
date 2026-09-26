@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US to Saudi Arabia & GCC Shipping Calculator (2026) | AQX Logistics</title>
+  <meta name="description" content="Calculate real-time landed shipping costs, actual vs volumetric weight savings, and ZATCA 15% VAT for parcels shipped from the USA to Saudi Arabia and the UAE.">
+  <link rel="canonical" href="https://aqxlogistics.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "US to Saudi Arabia & UAE Freight Calculator 2026",
+    "url": "https://aqxlogistics.github.io/us-to-saudi-arabia-freight-calculator-2026/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "provider": {
+      "@type": "Organization",
+      "name": "Herbiflix LLC dba AQX Logistics",
+      "url": "https://aqxlogistics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "309 E Arbor Vitae St",
+        "addressLocality": "Inglewood",
+        "addressRegion": "CA",
+        "postalCode": "90301",
+        "addressCountry": "US"
+      }
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --accent: #f97316;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 24px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 32px; }
+    h1 { font-size: 2.2rem; color: #fff; margin-bottom: 8px; }
+    .badge { display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+    .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; color: #e2e8f0; font-size: 0.95rem; }
+    input, select { width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: #0f172a; color: white; font-size: 1rem; }
+    input:focus, select:focus { outline: 2px solid var(--primary); border-color: transparent; }
+    .result-box { background: rgba(14, 165, 233, 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 24px; margin-top: 24px; }
+    .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .result-row:last-child { border-bottom: none; font-size: 1.3rem; font-weight: 800; color: #38bdf8; margin-top: 8px; padding-top: 14px; }
+    .cta-btn { display: block; width: 100%; text-align: center; background: var(--accent); color: white; padding: 16px; border-radius: 10px; font-weight: 700; font-size: 1.1rem; text-decoration: none; margin-top: 24px; transition: transform 0.2s, background 0.2s; }
+    .cta-btn:hover { background: #ea580c; transform: translateY(-2px); }
+    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+    .comparison-table th, .comparison-table td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+    .comparison-table th { background: rgba(255,255,255,0.05); }
+    .savings-pill { background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; }
+    footer { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px; }
+    footer a { color: var(--primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Official 2026 Logistics Engine</span>
+      <h1>USA to Saudi Arabia & GCC Landed Cost Calculator</h1>
+      <p class="subtitle">Direct Air Cargo from Los Angeles (LAX) • Actual Weight Billing • 0% California Sales Tax</p>
+    </header>
+
+    <div class="card">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="category">Cargo Category</label>
+          <select id="category" onchange="calculate()">
+            <option value="general">Standard General Cargo ($15.50/kg)</option>
+            <option value="beauty">Health, Beauty & Supplements ($8.50/kg, min 8kg)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="destination">Destination Country</label>
+          <select id="destination" onchange="calculate()">
+            <option value="sa">Saudi Arabia (KSA) - 15% ZATCA VAT</option>
+            <option value="uae">United Arab Emirates (UAE) - 5% VAT</option>
+            <option value="kuwait">Kuwait (0% VAT)</option>
+            <option value="qatar">Qatar (0% VAT)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="weight">Physical Weight (kg)</label>
+          <input type="number" id="weight" value="3.5" min="0.5" step="0.1" oninput="calculate()">
+        </div>
+        <div class="form-group">
+          <label for="dims">Box Dimensions (L × W × H in cm)</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+            <input type="number" id="dimL" placeholder="L" value="35" oninput="calculate()">
+            <input type="number" id="dimW" placeholder="W" value="25" oninput="calculate()">
+            <input type="number" id="dimH" placeholder="H" value="20" oninput="calculate()">
+          </div>
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-row">
+          <span>Actual Physical Weight:</span>
+          <span id="displayWeight">3.5 kg</span>
+        </div>
+        <div class="result-row">
+          <span>Competitor Volumetric Weight (L×W×H / 5000):</span>
+          <span id="displayVolumetric" style="color: #ef4444;">3.5 kg</span>
+        </div>
+        <div class="result-row">
+          <span>Base International Freight:</span>
+          <span id="displayFreight">$54.25 USD</span>
+        </div>
+        <div class="result-row">
+          <span>Import VAT:</span>
+          <span id="displayVAT">$8.14 USD</span>
+        </div>
+        <div class="result-row">
+          <span>Total Landed Cost (Turnkey DDP):</span>
+          <span id="displayTotal">$62.39 USD</span>
+        </div>
+      </div>
+
+      <a href="https://aqxlogistics.com/register" target="_blank" class="cta-btn">Claim Free US Suite & Ship Now →</a>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-bottom: 16px; font-size: 1.4rem;">Why AQX Logistics Outperforms Legacy Forwarders</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Legacy Forwarders (MyUS / Stackry / S4L)</th>
+            <th>AQX Logistics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Billing Basis</strong></td>
+            <td>Higher of Physical vs Volumetric Weight</td>
+            <td><strong>True Actual Weight</strong> <span class="savings-pill">Save up to 70%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Base Pricing</strong></td>
+            <td>$25–$45 for 1st lb + steep jumps</td>
+            <td><strong>$15.50 / kg Flat Rate</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Consolidation</strong></td>
+            <td>$2–$5 fee per extra package</td>
+            <td><strong>100% Free Repacking</strong></td>
+          </tr>
+          <tr>
+            <td><strong>California Sales Tax</strong></td>
+            <td>7.25%–10.25% charged at checkout</td>
+            <td><strong>0% Tax-Exempt Locker</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Transit Time</strong></td>
+            <td>5–10 business days</td>
+            <td><strong>2–4 Days (Direct LAX ✈ RUH/JED)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>© 2026 <a href="https://aqxlogistics.com">AQX Logistics</a> (Herbiflix LLC dba AQX Logistics). 309 E Arbor Vitae St, Inglewood, CA 90301, USA.</p>
+      <p style="margin-top: 8px;">Explore our detailed corridor guides: <a href="https://aqxlogistics.com/blog">AQX Logistics Knowledge Hub</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function calculate() {
+      const category = document.getElementById('category').value;
+      const destination = document.getElementById('destination').value;
+      const weight = Math.max(0.5, parseFloat(document.getElementById('weight').value) || 0.5);
+      const l = parseFloat(document.getElementById('dimL').value) || 0;
+      const w = parseFloat(document.getElementById('dimW').value) || 0;
+      const h = parseFloat(document.getElementById('dimH').value) || 0;
+
+      const volWeight = ((l * w * h) / 5000).toFixed(2);
+      document.getElementById('displayWeight').innerText = weight.toFixed(2) + " kg";
+      document.getElementById('displayVolumetric').innerText = volWeight + " kg (competitors bill this!)";
+
+      let ratePerKg = (category === 'beauty' && weight >= 8.0) ? 8.50 : 15.50;
+      let freight = weight * ratePerKg;
+
+      let vatRate = 0.15;
+      if (destination === 'uae') vatRate = 0.05;
+      if (destination === 'kuwait' || destination === 'qatar') vatRate = 0.00;
+
+      let vat = freight * vatRate;
+      let total = freight + vat;
+
+      document.getElementById('displayFreight').innerText = "$" + freight.toFixed(2) + " USD";
+      document.getElementById('displayVAT').innerText = "$" + vat.toFixed(2) + " USD (" + (vatRate * 100) + "%)";
+      document.getElementById('displayTotal').innerText = "$" + total.toFixed(2) + " USD";
+    }
+    calculate();
+  </script>
+</body>
+</html>
