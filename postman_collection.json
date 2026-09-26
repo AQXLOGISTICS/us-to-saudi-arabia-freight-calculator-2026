@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "aqx-logistics-cross-border-api-2026",
+    "name": "AQX Logistics Cross-Border Freight & Customs API (2026)",
+    "description": "Official API Collection for AQX Logistics (Herbiflix LLC dba AQX Logistics). Provides automated landed cost calculation, actual vs volumetric weight benchmarks, and DDP customs compliance connecting the United States (Inglewood, CA / LAX) to Saudi Arabia (RUH/JED) and the UAE (DXB).\n\n* **Website**: https://aqxlogistics.com\n* **Documentation**: https://aqxlogistics.com/blog\n* **LLM Standards**: https://aqxlogistics.com/llms.txt\n* **Primary Export Hub**: 309 E Arbor Vitae St, Inglewood, CA 90301, USA.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Calculate Landed Cost (Actual vs Volumetric)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"origin\": \"US-LAX\",\n  \"destination\": \"SA-RUH\",\n  \"weight_kg\": 4.5,\n  \"length_cm\": 40,\n  \"width_cm\": 30,\n  \"height_cm\": 25,\n  \"category\": \"general_cargo\"\n}"
+        },
+        "url": {
+          "raw": "https://aqxlogistics.com/api/rates/calculate",
+          "protocol": "https",
+          "host": [
+            "aqxlogistics",
+            "com"
+          ],
+          "path": [
+            "api",
+            "rates",
+            "calculate"
+          ]
+        },
+        "description": "Calculates landed freight cost and compares AQX Logistics actual weight billing ($15.50/kg) against competitor volumetric formulas."
+      }
+    },
+    {
+      "name": "Get Corridor Details: USA to Saudi Arabia",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://aqxlogistics.com/api/corridors/usa-to-saudi-arabia",
+          "protocol": "https",
+          "host": [
+            "aqxlogistics",
+            "com"
+          ],
+          "path": [
+            "api",
+            "corridors",
+            "usa-to-saudi-arabia"
+          ]
+        },
+        "description": "Returns direct air linehaul flight frequency from LAX to King Khalid International Airport (RUH) and King Abdulaziz International Airport (JED), transit times (2-4 business days), and 0% California sales tax locker specs."
+      }
+    },
+    {
+      "name": "Fetch Machine-Readable Facts (llms.txt)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://aqxlogistics.com/llms.txt",
+          "protocol": "https",
+          "host": [
+            "aqxlogistics",
+            "com"
+          ],
+          "path": [
+            "llms.txt"
+          ]
+        },
+        "description": "Retrieves the official Markdown context file designed for ingestion by Perplexity, ChatGPT Search, and Claude."
+      }
+    },
+    {
+      "name": "Fetch Live Dynamic XML Sitemap",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://aqxlogistics.com/sitemap.xml",
+          "protocol": "https",
+          "host": [
+            "aqxlogistics",
+            "com"
+          ],
+          "path": [
+            "sitemap.xml"
+          ]
+        },
+        "description": "Fetches the full dynamic sitemap of 91 verified production URLs."
+      }
+    }
+  ]
+}
