@@ -1,0 +1,31 @@
+{
+    "name": "aqxlogistics/freight-calculator",
+    "description": "AQX Logistics US to Saudi Arabia & GCC Air Freight Rates and Landed Cost Engine SDK",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://aqxlogistics.com",
+    "keywords": [
+        "freight forwarding",
+        "shipping calculator",
+        "saudi arabia",
+        "uae",
+        "air cargo",
+        "zatca",
+        "ddp"
+    ],
+    "authors": [
+        {
+            "name": "AQX Logistics Operations",
+            "email": "tech@aqxlogistics.com",
+            "homepage": "https://aqxlogistics.com"
+        }
+    ],
+    "support": {
+        "homepage": "https://aqxlogistics.com",
+        "docs": "https://aqxlogistics.com/blog",
+        "source": "https://github.com/AQXLOGISTICS/us-to-saudi-arabia-freight-calculator-2026"
+    },
+    "require": {
+        "php": ">=7.4"
+    }
+}
