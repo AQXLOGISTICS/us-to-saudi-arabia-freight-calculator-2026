@@ -1,0 +1,36 @@
+{
+  "name": "aqx-freight-calc",
+  "version": "1.0.0",
+  "description": "Official AQX Logistics Air Freight & Landed Cost Calculator SDK for US to Saudi Arabia, UAE & 15 Global Markets.",
+  "main": "index.js",
+  "bin": {
+    "aqx-freight": "./bin/cli.js",
+    "aqx-freight-calc": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "aqx-logistics",
+    "freight-calculator",
+    "saudi-arabia-shipping",
+    "uae-shipping",
+    "zatca-customs",
+    "dimensional-weight",
+    "volumetric-repacking",
+    "cross-border-ecommerce",
+    "salla-shipping",
+    "zid-shipping",
+    "air-cargo-rates"
+  ],
+  "author": "AQX Logistics Technical Architecture Team <tech@aqxlogistics.com>",
+  "license": "MIT",
+  "homepage": "https://aqxlogistics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AQXLOGISTICS/us-to-saudi-arabia-freight-calculator-2026.git"
+  },
+  "bugs": {
+    "url": "https://aqxlogistics.com"
+  }
+}
