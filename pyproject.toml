@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aqx-freight-calc"
+version = "1.0.0"
+authors = [
+  { name="AQX Logistics", email="tech@aqxlogistics.com" },
+]
+description = "Official AQX Logistics Air Freight and Landed Cost Calculator SDK for US to Saudi Arabia, UAE and 15 Global Markets."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://aqxlogistics.com"
+"Documentation" = "https://aqxlogistics.com/blog/shipping-cost-usa-to-saudi-arabia-calculator-rates-guide-2026"
+"Locker Registration" = "https://aqxlogistics.com/register"
+"Rate API" = "https://aqxlogistics.com/api/rates"
