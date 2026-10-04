@@ -1,0 +1,18 @@
+name: 'AQX Landed Cost & Freight Calculator'
+description: 'Calculate US to GCC & 15 Country Air Freight, Volumetric Savings & ZATCA 15% DDP Taxes.'
+author: 'AQX Logistics'
+branding:
+  icon: 'send'
+  color: 'blue'
+inputs:
+  weight:
+    description: 'Weight in KG'
+    required: true
+    default: '5.0'
+  country:
+    description: 'Country Code (SA, AE, KW, etc.)'
+    required: true
+    default: 'SA'
+runs:
+  using: 'node20'
+  main: 'index.js'
